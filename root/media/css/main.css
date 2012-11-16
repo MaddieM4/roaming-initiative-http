@@ -5,6 +5,24 @@
     padding: 5px;
 }
 
+#sidebar .button {
+    display: block;
+    width: 180px;
+    height: 1em;
+    padding: 5px;
+    margin: 4px;
+    text-decoration: none;
+    color: #003D09;
+    background-color: #BFA;
+    border: 2px solid #003D09;
+}
+
+#sidebar .button:hover {
+    color: #002D09;
+    background-color: white;
+    border-color: #003D09;
+}
+
 #main-content {
     float: left;
     position: relative;
