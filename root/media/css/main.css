@@ -1,0 +1,27 @@
+#sidebar {
+    float: left;
+    position: relative;
+    width: 210px;
+    padding: 5px;
+}
+
+#main-content {
+    float: left;
+    position: relative;
+    width: 500px;
+    padding: 15px;
+    background-color: #BFA;
+    border: 6px solid #003D09;
+    margin-top: 8px;
+}
+
+.container {
+    clear: both;
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+}
+
+body {
+    background-color: #282;
+}
