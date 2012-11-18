@@ -1,16 +1,23 @@
 import sys
+import os.path
 import bottle
 from bottle import Bottle, run, template, static_file
 
 app = Bottle()
 
 @app.route('/')
-def index():
-    return open('root/index.html')
+@app.route('/index.htm')
+@app.route('/index.html')
+def root():
+    return render('index')
 
 @app.route('/<filename:path>')
-def static(filename):
-    return static_file(filename, root="root")
+def render(filename):
+    tmpl_path = 'pages/'+filename+".tpl"
+    if os.path.isfile(tmpl_path):
+        return template(tmpl_path)
+    else:
+        return static_file(filename, root="root")
 
 reloader = False
 if "--debug" in sys.argv:
