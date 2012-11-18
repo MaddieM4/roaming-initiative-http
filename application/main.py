@@ -25,4 +25,9 @@ if "--debug" in sys.argv:
     bottle.debug(True)
     #reloader = True
 
-run(app, host='localhost', port=8000, reloader=reloader)
+run(app,
+    host='localhost',
+    port=8000,
+    #server="gevent", # TODO: Figure out correct version for gevent
+    reloader=reloader
+)
