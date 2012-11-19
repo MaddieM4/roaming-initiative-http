@@ -4,23 +4,18 @@ DATA_PATH=/var/www-data/roaming-initiative-http/
 VENV_PATH=./develop/bin/activate
 
 WSGI_PIDFILE=/var/run/ri-http.pid
-DAEMON="uwsgi -w application.main -s localhost:5555"
+DAEMON=${DATA_PATH}config/runserver.sh
 
 case "$1" in
   start)
     echo "Starting server"
-
-    cd $DATA_PATH
-
-    # Activate the virtual environment
-    . $VENV_PATH
 
     # Run start-stop-daemon, the $DAEMON variable contains the path to the
     # application to run
     start-stop-daemon --start --pidfile $WSGI_PIDFILE \
         --user www-data --group www-data \
         --chuid www-data \
-        --exec "$DAEMON"
+        --exec $DAEMON
     ;;
   stop)
     echo "Stopping WSGI Application"
