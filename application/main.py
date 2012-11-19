@@ -19,15 +19,4 @@ def render(filename):
     else:
         return static_file(filename, root="root")
 
-reloader = False
-if "--debug" in sys.argv:
-    print "Running in debug mode"
-    bottle.debug(True)
-    #reloader = True
-
-run(app,
-    host='localhost',
-    port=8000,
-    #server="gevent", # TODO: Figure out correct version for gevent
-    reloader=reloader
-)
+application = app
