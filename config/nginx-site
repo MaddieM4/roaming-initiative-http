@@ -1,69 +1,69 @@
 server {
 
-	listen   80; ## listen for ipv4
-	listen   [::]:80 default ipv6only=on; ## listen for ipv6
+    #listen   80; ## listen for ipv4
+    #listen   [::]:80 default ipv6only=on; ## listen for ipv6
 
-	server_name  roaming-initiative.net *.roaming-initiative.net *.roaming-initiative.com;
-	server_name_in_redirect off;
+    server_name  roaming-initiative.net *.roaming-initiative.net *.roaming-initiative.com;
+    server_name_in_redirect off;
 
-	access_log  /var/log/nginx/ri.access.log;
+    access_log  /var/log/nginx/ri.access.log;
 
-	location / {
+    location / {
         uwsgi_pass 127.0.0.1:5555; 
         include uwsgi_params;
-	}
-
-    location /media {
-		root   /var/www-data/roaming-initiative-http/root;
     }
 
-	location /blog {
-		alias	/var/www-data/blog/hyde/publish;
-		index	index.html index.htm;
-	}
+    location /media {
+        root   /var/www-data/roaming-initiative-http/root;
+    }
 
-	location /doc {
-		root   /usr/share;
-		autoindex on;
-		allow 127.0.0.1;
-		deny all;
-	}
+    location /blog {
+        alias   /var/www-data/blog/hyde/publish;
+        index   index.html index.htm;
+    }
 
-	location /images {
-		root   /usr/share;
-		autoindex on;
-	}
+    location /doc {
+        root   /usr/share;
+        autoindex on;
+        allow 127.0.0.1;
+        deny all;
+    }
 
-	#error_page  404  /404.html;
+    location /images {
+        root   /usr/share;
+        autoindex on;
+    }
 
-	# redirect server error pages to the static page /50x.html
-	#
-	#error_page   500 502 503 504  /50x.html;
-	#location = /50x.html {
-	#	root   /var/www/nginx-default;
-	#}
+    #error_page  404  /404.html;
 
-	# proxy the PHP scripts to Apache listening on 127.0.0.1:80
-	#
-	#location ~ \.php$ {
-		#proxy_pass   http://127.0.0.1;
-	#}
+    # redirect server error pages to the static page /50x.html
+    #
+    #error_page   500 502 503 504  /50x.html;
+    #location = /50x.html {
+    #   root   /var/www/nginx-default;
+    #}
 
-	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-	#
-	#location ~ \.php$ {
-		#fastcgi_pass   127.0.0.1:9000;
-		#fastcgi_index  index.php;
-		#fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-		#includefastcgi_params;
-	#}
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+        #proxy_pass   http://127.0.0.1;
+    #}
 
-	# deny access to .htaccess files, if Apache's document root
-	# concurs with nginx's one
-	#
-	#location ~ /\.ht {
-		#deny  all;
-	#}
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+        #fastcgi_pass   127.0.0.1:9000;
+        #fastcgi_index  index.php;
+        #fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #includefastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+        #deny  all;
+    #}
 }
 
 
