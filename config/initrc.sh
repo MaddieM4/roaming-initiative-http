@@ -12,9 +12,10 @@ case "$1" in
 
     # Run start-stop-daemon, the $DAEMON variable contains the path to the
     # application to run
-    start-stop-daemon --start --pidfile $WSGI_PIDFILE \
+    start-stop-daemon --start -m --pidfile $WSGI_PIDFILE \
         --user www-data --group www-data \
         --chuid www-data \
+        -b \
         --exec $DAEMON
     ;;
   stop)
@@ -23,6 +24,7 @@ case "$1" in
     # Start-stop daemon can also stop the application by sending sig 15
     # (configurable) to the process id contained in the run/pid file
     start-stop-daemon --stop --pidfile $WSGI_PIDFILE --verbose
+    rm $WSGI_PIDFILE
     ;;
   restart)
     /etc/init.d/ri-http stop

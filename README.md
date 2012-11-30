@@ -12,6 +12,6 @@ and testing with Debian Stable, and writing for my own needs.
 DEPENDENCIES
 ============
 
- * nginx >= 1.2.5 (stable via nginx.org)
+ * nginx >= 1.2.1 (via squeeze-backports)
  * Python >= 2.6
  * uwsgi 1.4.1

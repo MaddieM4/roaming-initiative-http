@@ -3,20 +3,18 @@ server {
 	listen   80; ## listen for ipv4
 	listen   [::]:80 default ipv6only=on; ## listen for ipv6
 
-	server_name  roaming-initiative.net *.roaming-initiative.*;
+	server_name  roaming-initiative.net *.roaming-initiative.net *.roaming-initiative.com;
 	server_name_in_redirect off;
 
 	access_log  /var/log/nginx/ri.access.log;
 
 	location / {
-		root   /var/www-data/roaming-initiative-http/root;
-		#index  index.html index.htm;
-        try_files $uri $uri/ @wsgi-backend;
-	}
-
-    location @wsgi-backed {
         uwsgi_pass 127.0.0.1:5555; 
         include uwsgi_params;
+	}
+
+    location /media {
+		root   /var/www-data/roaming-initiative-http/root;
     }
 
 	location /blog {
