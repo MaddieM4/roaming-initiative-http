@@ -3,7 +3,27 @@
 <h1> Hardware </h1>
 <p>We're going to have a couple different types of hardware we buy and sell as official parts of this project. The important thing to remember, though, is that we're just one vendor of open-standards-using hardware, and all this stuff is perfectly interoperable with existing CJDNS networks right out of the box.</p>
 <div class="feature-box">
-    <div class="title">The RITower</div>
-    <p>A long-range wireless backbone hub. Supports both WiFi <em>and WiMax</em> communication. This means it's a compatible access point for smaller mesh devices within WiFi range, but it can also talk to other WiMax towers over a much larger range at high bandwidth. Comes with battery pack for up to 8 hours of uninterrupted communication in the event of power grid failure. Perfectly capable of talking to WiMax-compatible small devices.</p>
+    <h3>The RITower</h3>
+    <p>A long-range wireless backbone hub. Supports both WiFi <em>and WiMax</em> communication. This means it's a compatible access point for smaller mesh devices within WiFi range, but it can also talk to other WiMax towers over a much larger range at high bandwidth. Comes with battery pack for up to 8 hours of uninterrupted communication in the event of power grid failure. Perfectly capable of talking to WiMax-compatible small devices. Will run CVI gateway software where high-bandwidth clearnet access is available.</p>
     <p>Keep in mind that WiMax uses different frequencies than WiFi, and requires extra licensing from the FCC to use. We're going to obtain our own license for setting up neighborhood backbones using this hardware, but if you buy one from us for your own use, you'll need your own FCC license. Comparable laws are probably present in other countries, so be sure to do your own research of local WiMax regulation.</p>
 </div>
+<div class="feature-box">
+    <h3>The RILink Valkyrie</h3>
+    <p>A DIR-600 router flashed with OpenWRT. Supports a minimal set of the software for CJDNS meshing (with optional OLSR or BATMAN underlay network), VPN routing configuration via web interface (probably a rebranded fork of Plinth), and enough local documentation that you can get yourself out of scrapes without internet access.</p>
+    <p>Like all members of the RILink family, this is designed to work either directly as your home router, or to take over the "modem" role in your existing configuration, as an internet-black-box to your home router.</p>
+</div>
+<div class="feature-box">
+    <h3>The RILink Bifrost</h3>
+    <p>Same software as the Valkyrie, but on Ubiquiti Nanostation hardware. Useful for long-distance point-to-point in WiFi frequencies.</p>
+</div>
+<div class="feature-box">
+    <h3>The RILink Midgard</h3>
+    <p>A used laptop running Valkyrie software, plus a few other local services, like MediaGoblin, Brightswipe, and an easy-to-enable Tor relay. Possibly also Amanda open-source backup hardware. Another difference from Valkyrie and Bifrost is that it runs Debian Stable Linux, not OpenWRT.</p>
+    <p>The built-in battery makes this the ideal choice for consumer mesh hardware, especially for the price. Since these nodes will easily stay up during power outages (up to a certain point) these make great intermediate points in a neighborhood mesh.</p>
+</div>
+<div class="feature-box">
+    <h3>The RILink Asgard</h3>
+    <p>Same as the Midgard, only with new laptops, bought straight from the manufacturer. Which make and model are yet to be determined, but this will be one of the last classes of RILink to become available for purchase anyways, so it doesn't really make a difference. The intention is to provide peace of mind in terms of hardware quality and reliability, which is a concern for any used device.</p>
+</div>
+
+<p>Our strategy is to only install RITowers ourselves to build up neighborhood infrastructure in select areas, choosing tower locations based on WiMax range and clearnet backbone availability. These will also be available for sale, just like the rest of our hardware options. The majority of our physical infrastructure will be made up of other people's mesh devices, including RILinks and hobbyist hardware, with the RITowers providing a fast, RI-subsidized scaffolding for the network.<p>
