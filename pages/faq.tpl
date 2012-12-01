@@ -1,0 +1,62 @@
+%rebase templates/base.tpl title="FAQ - Roaming Initiative"
+
+<h1> FAQ </h1>
+<p>This is purely speculative, until actual people start asking questions, but here are some things that people might find confusing about the RI project.</p>
+<ul>
+    <li><a href="#what-is-ri">What IS the Roaming Initiative?</a></li>
+    <li><a href="#how-does-it-work">How does it work?</a></li>
+    <li><a href="#hyperboria">What is Hyperboria?</a></li>
+    <li><a href="#cjdns">What is CJDNS?</a></li>
+    <li><a href="#how-clearnet-access">How do you provide clearnet access through Hyperboria? What's a CVI?</a></li>
+    <li><a href="#how-freedom">How does this promote internet freedom?</a></li>
+</ul>
+<div class="feature-box" id="what-is-ri">
+    <h3>What IS the Roaming Initiative?</h3>
+    <p>The goal is to be able to go anywhere with your internet connection. The goal is to have Hyperboria available everywhere. The goal is for user security and privacy to be the default, ISPs to be competitive, last-mile physical infrastructure to be shared, and draconian ISP legislation to be unenforceable.</p>
+    <p>In short, we're an ISP fighting for internet freedom.</p>
+
+    <a href="#"><em>Back to top.</em></a>
+</div>
+<div class="feature-box" id="how-does-it-work">
+    <h3>How does it work?</h3>
+    <p>Well, as our <a href="/blog">blog</a> puts it, we're the world's first CJDNS VPN ISP, or CVI. Yeah, that's a lot of initialisms.</p>
+    <p>Basically, right now, there's only one real "internet", commonly referred to by mesh network advocates as "the clearnet." The clearnet is where things like reddit, Facebook, Amazon, and Google live. Also pretty much anything else you've ever done online. And the clearnet will always cost money, no real way around that.</p>
+    <p>What we do is add a layer of free internet, Hyperboria, underneath the clearnet - so that you're accessing the clearnet <em>through</em> Hyperboria. This isn't just about getting access to some geeky hacker websites for free, although you get that too. The main benefit is that the same WiFi mesh network between you and your neighbors that makes up Hyperboria, can be used by <em>any</em> ISP to provide access to the clearnet.</p>
+    <p>This makes telecoms monopolies impossible, or at least financially untenable. The reason internet costs you so much is because Comcast or Warner Cable puts in their last-mile infrastructure and says "This is mine, I paid for it, I own it, no one else gets to use it." With Hyperboria, that local infrastructure is all owned by the people and acting as a shared network. Any ISP can provide clearnet access without having to set up their own last-mile cables and boxes, all you need is a free afternoon and some commodity server boxes. There's no cost to pass on to customers, or to use as an excuse for high prices.</p>
+    <p>Another benefit is that machines in the Hyperboria network are very difficult to censor. If the government decides one day, "No ISPs can allow access to the Pirate Bay", all TPB has to do is make their servers available on Hyperboria and register some DNS records, and <em>everyone</em> in Hyperboria can access it, with no service interruption. You get this as the foundation of your internet access when you start with Hyperboria.</p>
+    <p>Finally, the mesh network model is the most resilient in the face of natural disasters, such as power outages. In the event of a tsunami and mass infrastructure damage, you'll still probably have access to the internet on your phone over WiFi, and will be able to make calls to your loved ones over VoIP.</p>
+
+    <a href="#"><em>Back to top.</em></a>
+</div>
+<div class="feature-box" id="hyperboria">
+    <h3>What is Hyperboria?</h3>
+    <p><a href="http://hyperboria.net/">Hyperboria</a> is a peer-to-peer encrypted IPv6 network using onion-routing and trust relationships. Thanks to recent developments, it can be used directly as a mesh network routing layer.</p>
+    <p>Hyperboria runs on software called CJDNS - in fact, it's the world's largest CJDNS network.</p>
+
+    <a href="#"><em>Back to top.</em></a>
+</div>
+<div class="feature-box" id="cjdns">
+    <h3>What is CJDNS?</h3>
+    <p><a href="http://cjdns.info/">CJDNS</a> is a very interesting piece of network technology designed for privacy, security, speed, and uncensorability. It's a transitional mesh routing engine that can connect directly over WiFi/Ethernet, or indirectly over another network. Currently, most connections between CJDNS nodes are actually encrypted clearnet connections, travelling over IPv4-space over existing corporate architecture.</p>
+    <p>One of its great strengths is that, like any mesh routing engine, if you have access to the network, you can provide access to others. It just takes one connection to glom networks together. If Alice has small network A, and Bob has small network B, and any of Alice's computers establishes a CJDNS link with any of Bob's computers, the networks are automagically stitched together into one, and any of Alice's computers can talk to any of Bob's (and vice-versa). So any small network can become part of Hyperboria if just one node of that network gets access to any one node of Hyperboria.</p>
+
+    <a href="#"><em>Back to top.</em></a>
+</div>
+<div class="feature-box" id="how-clearnet-access">
+    <h3>How do you provide clearnet access through Hyperboria? What's a CVI?</h3>
+    <p>We do it through another layer of tech - a <a href="https://en.wikipedia.org/wiki/Vpn">VPN, or virtual private network</a>. This is commonly used in companies that allow people to work from home - when used as originally designed, it allows your computer at home to pretend it's part of the network at work, with the communication in between encrypted.</p>
+    <p>VPNs aren't the only traffic-encapsulating technology, but they're one of a select few that aren't "half-assed." SOCKS5, for example, is a popular proxy protocol, but it basically only handles TCP/HTTP. No ICMP (so ping doesn't work), and while UDP forwarding is possible, it has its own settings and it's kind of a pain. VPNs are designed to handle any IP traffic you can throw at them, which is just what you need for this sort of thing.</p>
+    <p>For our uses, VPNs are a bit overkill thanks to the extra layer of encryption they impose on your traffic. For example, if you go to a website that's HTTPS (like an online banking site), you'll have multiple layers of onion encryption for CJDNS, the VPN layer, and then HTTPS's end-to-end encryption. So when more lightweight alternatives become available, we'll likely switch to those for performance reasons. Other than that, VPNs are an ideal tool for providing clearnet access over Hyperboria.</p>
+    <p>When your RILink mesh router starts up, it'll try to ping a couple of our Hyperboria servers, and figure out which CVI gateway is fastest. When it decides, it'll set up a VPN connection with that server using your private credentials, and forward all clearnet traffic through that. The CVI gateway will have access to the clearnet, and relay traffic between the outside world and your mesh router. Your Hyperboria traffic goes directly through Hyperboria, your clearnet traffic goes through Hyperboria to a CVI gateway.</p>
+    <p>CVI stands for CJDNS VPN ISP. We provide an ISP (Internet Service provider) service, through a VPN (Virtual Private Network), hosted on CJDNS (Caleb J. Delisle's Networking Suite). Thus, CJDNS VPN ISP, or CVI for short. And yes, that IS two layers of abbreviation. Sorry.</p>
+
+    <a href="#"><em>Back to top.</em></a>
+</div>
+<div class="feature-box" id="how-freedom">
+    <h3>How does this promote internet freedom?</h3>
+    <p>By creating a shared network of cooperating, privately owned physical infrastructure, for one. A lot of the shady stuff that traditional ISPs do, they can get away with because they own every step of the plumbing between you and the internet. When the physical architecture is owned by people like you in a censorship-free base network, the cost to set up and maintain an ISP becomes close to zero, and companies that abuse their customers will quickly shrivel up, unable to compete (yay for the free market working as advertised!). The ultimate long-term result is being able to get a Hyperboria connection anywhere, and for paid-service infrastructure to be relegated to backbone links, acting as dumb pipes for massive amounts of encrypted data.</p>
+    <p>Another important aspect of the ubiquity of Hyperboria is that any server with Hyperboria access is available for free. This is good for controversial websites, like The Pirate Bay, but it's also a great element of ISP competition. You can shop around for a CVI service after getting a mesh router hooked up (or simply installing mesh software on one of your existing computers). Without paying a dime for internet access, you can check out any CVI website you want and decide which one is best for you.</p>
+    <p>Ultimately, the Roaming Initiative project is not about trying to do impossible things, like hocnet microtaxing or immediate free-as-in-beer internet access for everyone (no offense meant toward these efforts, though, of course). It's about showing that there is good business sense in doing the right thing. It's about showing the copyright industry that it cannot own speech, as speech yearns to be free, and speech will inevitably win. It's about finding realistic and agreeable ways to build a network of disaster-resistant, censorship-resistant hardware that will move humanity forward in its continuing evolution towards transparency, honesty, peace, and egalitarianism.</p>
+
+    <a href="#"><em>Back to top.</em></a>
+</div>
