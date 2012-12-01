@@ -13,6 +13,7 @@ def root():
 
 @app.route('/<filename:path>')
 def render(filename):
+    filename = filename.rstrip("/")
     tmpl_path = 'pages/'+filename+".tpl"
     if os.path.isfile(tmpl_path):
         return template(tmpl_path)

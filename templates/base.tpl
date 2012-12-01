@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>{{ title or 'Roaming Initiative Official Site' }}</title>
-    <link href="media/css/main.css" rel="stylesheet" type="text/css">
+    <link href="/media/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container">
