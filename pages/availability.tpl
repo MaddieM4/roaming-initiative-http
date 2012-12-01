@@ -1,0 +1,7 @@
+%rebase templates/base.tpl title="Regional Availability - Roaming Initiative"
+
+<h1> Regional Availability </h1>
+
+<p>We'll be piloting the project in Oregon City and the Portland area. People in other areas can <a href="/contact">contact RI</a> to set up partnerships where they live, and I'll be happy to do that when the products are stable. That said, the RI project is in no way limited to officials rollout sites.</p>
+<p>Our CVI gateways are accessible from anywhere in Hyperboria, and therefore, anywhere in the world (although obviously, distance imposes latency). We'll be selling <a href="/hardware">hardware</a> internationally and providing documentation, so that you can put up your own hardware infrastructure and CVI companies without too much troubleshooting. All our work is open source, and we're passionate about making a competitive CVI industry full of local companies and fair prices, all subsidizing the common substrate that is Hyperboria. That's right, a company that's in love with the idea of having competitors. No, we're not on drugs.</p>
+<p>Keep in mind that this is all pending on developing the software and technology that glues everything together. We aren't going to flash, sell, and establish hardware even in our pilot areas before doing a decent amount of testing and development at HQ, and even the Oregon City rollout is essentially a beta installation. These things take time, so be patient, and <a href="/blog">follow the blog.</a></p>
