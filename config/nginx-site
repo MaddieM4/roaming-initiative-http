@@ -16,6 +16,10 @@ server {
     location /media {
         root   /var/www-data/roaming-initiative-http/root;
     }
+    location /favicon.ico {
+        root   /var/www-data/roaming-initiative-http/root;
+    }
+
 
     location /blog {
         alias   /var/www-data/blog/hyde/publish;
