@@ -4,7 +4,7 @@ import bottle
 from bottle import Bottle, run, template, static_file, request
 
 app = Bottle()
-bottle.debug(True)
+#bottle.debug(True)
 
 ip_constants = {
     "clearnet4": "173.255.210.202",

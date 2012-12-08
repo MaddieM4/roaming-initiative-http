@@ -12,6 +12,6 @@
     </header>
 %else:
     <header class="dev">
-        You are not accessing this site from a known IP, so the server is probably a development machine ({{ ip['server'] }})
+        You are not accessing this site via a known server IP, so the server is probably a development machine ({{ ip['server'] }})
     </header>
 %end
