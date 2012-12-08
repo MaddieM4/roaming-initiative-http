@@ -1,7 +1,7 @@
 server {
 
     #listen   80; ## listen for ipv4
-    #listen   [::]:80 default ipv6only=on; ## listen for ipv6
+    listen   [::]:80 default ipv6only=on; ## listen for ipv6
 
     server_name  roaming-initiative.net *.roaming-initiative.net *.roaming-initiative.com;
     server_name_in_redirect off;
@@ -9,8 +9,12 @@ server {
     access_log  /var/log/nginx/ri.access.log;
 
     location / {
-        uwsgi_pass 127.0.0.1:5555; 
         include uwsgi_params;
+
+        uwsgi_param X-Real-IP $remote_addr;
+        uwsgi_param Server-Addr $server_addr;
+
+        uwsgi_pass 127.0.0.1:5555; 
     }
 
     location /media {
