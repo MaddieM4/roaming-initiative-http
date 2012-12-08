@@ -7,9 +7,9 @@ app = Bottle()
 bottle.debug(True)
 
 ip_constants = {
-    "hyperboria": "hype",
-    "clearnet4": "4",
-    "clearnet6": "6",
+    "clearnet4": "173.255.210.202",
+    "clearnet6": "2600:3c01::f03c:91ff:feae:1082",
+    "hyperboria":"fcd5:7d07:2146:f18f:f937:d46e:77c9:80e7",
 }
 
 def make_template_variables(tmpl_path):
