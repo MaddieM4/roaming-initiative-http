@@ -9,8 +9,12 @@ server {
     access_log  /var/log/nginx/ri.access.log;
 
     location / {
-        uwsgi_pass 127.0.0.1:5555; 
         include uwsgi_params;
+
+        uwsgi_param X-Real-IP $remote_addr;
+        uwsgi_param Server-Addr $server_addr;
+
+        uwsgi_pass 127.0.0.1:5555; 
     }
 
     location /media {

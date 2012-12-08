@@ -1,4 +1,4 @@
-%rebase templates/base.tpl title="Roaming Initiative - Freedom for the Internet"
+%rebase templates/base.tpl ip=ip, title="Roaming Initiative - Freedom for the Internet"
 
 <h1> Roaming Initiative </h1>
 <p>Roaming Initiative is a new, experimental company dedicated to universal consumer freedom and privacy, free access to Hyperboria (a community-run subset of the internet) and cheap access to the traditional clearnet through that. For now, you can read <a href="/blog/about.html">more about this project</a> and how it works. When the system is more mature, you'll be able to sign up for competitively-priced internet in a way that supports internet freedom and <a href="http://projectmeshnet.org">Project Meshnet.</a></p>
