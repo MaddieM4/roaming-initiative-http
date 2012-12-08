@@ -1,4 +1,4 @@
-%rebase templates/base.tpl title="Regional Availability - Roaming Initiative"
+%rebase templates/base.tpl ip=ip, title="Regional Availability - Roaming Initiative"
 
 <h1> Regional Availability </h1>
 

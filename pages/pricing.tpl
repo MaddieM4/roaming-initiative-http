@@ -1,4 +1,4 @@
-%rebase templates/base.tpl title="Pricing - Roaming Initiative"
+%rebase templates/base.tpl ip=ip, title="Pricing - Roaming Initiative"
 
 <h1> Pricing </h1>
 <p>Prices are yet to be determined - only a small amount of hardware is currently stocked (a few Valkyries and Bifrosts), none of it is flashed with RI software, and work on the CVI gateway software is not even properly started.</p>
