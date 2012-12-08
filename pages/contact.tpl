@@ -1,4 +1,4 @@
-%rebase templates/base.tpl title="Contact Us - Roaming Initiative"
+%rebase templates/base.tpl ip=ip, title="Contact Us - Roaming Initiative"
 
 <h1> Contact Us </h1>
 <p>You can contact CEO and single employee Philip Horger by the following methods:</p>

@@ -1,4 +1,4 @@
-%rebase templates/base.tpl title="Goodies - Roaming Initiative"
+%rebase templates/base.tpl ip=ip, title="Goodies - Roaming Initiative"
 
 <h1> Goodies </h1>
 <div class="feature-box">

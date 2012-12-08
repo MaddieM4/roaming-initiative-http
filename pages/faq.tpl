@@ -1,4 +1,4 @@
-%rebase templates/base.tpl title="FAQ - Roaming Initiative"
+%rebase templates/base.tpl ip=ip, title="FAQ - Roaming Initiative"
 
 <h1> FAQ </h1>
 <p>This is purely speculative, until actual people start asking questions, but here are some things that people might find confusing about the RI project.</p>

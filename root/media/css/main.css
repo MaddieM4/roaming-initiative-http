@@ -1,3 +1,25 @@
+header {
+    position: absolute;
+    top:  0px;
+    left: 0px;
+    height: 20px;
+    width:  100%;
+    padding: 5px;
+    background-color: white;
+    border-bottom: 2px solid black;
+}
+
+header.clearnet4 {
+    background-color: #DDD;
+}
+header.clearnet6 {
+    background-color: #94CFE0;
+}
+header.hyperboria {
+    background-color: #F5B53D;
+}
+
+
 #sidebar {
     float: left;
     position: relative;
@@ -63,5 +85,6 @@
 }
 
 body {
+    margin-top: 30px;
     background-color: #282;
 }
