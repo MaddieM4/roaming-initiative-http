@@ -6,6 +6,10 @@
     <p>Currently open-sourced:</p>
     <ul>
         <li><a href="https://github.com/campadrenalin/roaming-initiative-http">Main site (what you're reading now)</a></li>
+        <li><a href="https://github.com/Roaming-Initiative/roaming-initiative-hardware">Open recipes for RI Hardware</a></li>
+        <li><a href="https://github.com/campadrenalin/EJTP-lib-python">EJTP</a> <a href="/blog/blog/sponsoring-free-software.html">(Get paid to develop this!)</a></li>
+        <li><a href="https://github.com/campadrenalin/python-libdeje">DEJE</a></li>
+        <li><a href="https://github.com/campadrenalin/python-djdns">DJDNS</a></li>
     </ul>
     <p>Planned:</p>
     <ul>
