@@ -25,7 +25,7 @@
 </div>
 <div class="feature-box">
     <h3>MediaGoblin server</h3>
-    <p>Not yet available.</p>
+    <p>Anyone's welcome to try out our publicly hosted <a href="/mediagoblin/">Mediagoblin service</a>.</p>
 </div>
 <div class="feature-box">
     <h3>Diaspora* server</h3>
