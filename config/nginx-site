@@ -6,6 +6,9 @@ server {
     server_name  roaming-initiative.net *.roaming-initiative.net *.roaming-initiative.com;
     server_name_in_redirect off;
 
+    client_max_body_size 0; # No limit
+    sendfile on;
+
     access_log  /var/log/nginx/ri.access.log;
 
     location / {
@@ -28,6 +31,10 @@ server {
     location /blog {
         alias   /var/www-data/blog/hyde/publish;
         index   index.html index.htm;
+    }
+
+    location ~ ^/mediagoblin$ {
+        rewrite ^(.*)$ /mediagoblin/ permanent;
     }
 
     location ~ ^/mediagoblin/(.*) {
