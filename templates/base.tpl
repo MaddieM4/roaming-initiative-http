@@ -12,5 +12,6 @@
         %include
     </div>
 </div>
+%include templates/footer.tpl
 </body>
 </html>

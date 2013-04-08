@@ -9,4 +9,3 @@
     <a class="button" href="/availability">Regional Availability</a>
     <a class="button" href="/faq">FAQ</a>
 </aside>
-
