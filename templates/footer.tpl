@@ -3,7 +3,7 @@
 </footer>
 <script type="text/javascript">
     window._idl = {};
-    _idl.variant = "modal";
+    _idl.variant = "banner";
     (function() {
         var idl = document.createElement('script');
         idl.type = 'text/javascript';
