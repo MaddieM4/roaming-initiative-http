@@ -60,13 +60,6 @@ server {
         fastcgi_param SCRIPT_URL         /mediagoblin/$1;
     }
 
-    location /doc {
-        root   /usr/share;
-        autoindex on;
-        allow 127.0.0.1;
-        deny all;
-    }
-
     location /images {
         root   /usr/share;
         autoindex on;
