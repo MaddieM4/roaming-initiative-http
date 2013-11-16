@@ -26,6 +26,9 @@ server {
     location /favicon.ico {
         root   /var/www-data/roaming-initiative-http/root;
     }
+    location /robots.txt {
+        root   /var/www-data/roaming-initiative-http/root;
+    }
 
 
     location /blog {
