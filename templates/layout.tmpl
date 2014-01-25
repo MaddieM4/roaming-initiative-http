@@ -1,0 +1,51 @@
+{{define "header"}}
+<header class="dev">
+    Access type detection is disabled temporarily.
+</header>
+{{end}}
+{{define "sidebar"}}
+<aside id="sidebar">
+    <a href="/"><img class="logo" src="/media/images/logo200.png" alt="Roaming Initiative Logo" width="200" height="160"/></a>
+    <a class="button" href="/hardware">Hardware</a>
+    <a class="button" href="/pricing">Pricing</a>
+    <a class="button" href="/blog/">Blog</a>
+    <a class="button" href="/blog/about.html">About Us</a>
+    <a class="button" href="/contact">Contact</a>
+    <a class="button" href="/goodies">Goodies</a>
+    <a class="button" href="/availability">Regional Availability</a>
+    <a class="button" href="/faq">FAQ</a>
+</aside>
+{{end}}
+{{define "footer"}}
+<footer>
+    <a href="http://internetdefenseleague.org"><img src="http://internetdefenseleague.org/images/badges/final/shield_badge.png" alt="Member of The Internet Defense League" /></a>
+</footer>
+<script type="text/javascript">
+    window._idl = {};
+    _idl.variant = "banner";
+    (function() {
+        var idl = document.createElement('script');
+        idl.type = 'text/javascript';
+        idl.async = true;
+        idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+        document.getElementsByTagName('body')[0].appendChild(idl);
+    })();
+</script>
+{{end}}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Roaming Initiative Official Site</title>
+    <link href="/media/css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+{{ template "header" }}
+<div class="container">
+    {{ template "sidebar" }}
+    <div id="main-content">
+        {{ yield }}
+    </div>
+</div>
+{{ template "footer" }}
+</body>
+</html>
