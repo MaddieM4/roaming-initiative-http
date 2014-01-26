@@ -9,9 +9,15 @@ http://roaming-initiative.com/, so while I'll happily merge in changes that
 make this run on a wider range of system configurations, I'll only be developing
 and testing with Debian Stable, and writing for my own needs.
 
+This used to be a Python project. I decided I hated uwsgi, so I ported
+it to Golang. If you use this, be mindful that if your server platform
+is a different than that of your dev env, you will need to cross
+compile.
+
 DEPENDENCIES
 ============
 
  * nginx >= 1.2.1 (via squeeze-backports)
- * Python >= 2.6
- * uwsgi 1.4.1
+ * Golang 1.1+ (I use 1.2)
+ * http://github.com/codegangsta/martini
+ * http://github.com/codegangsta/martini-contrib/render
