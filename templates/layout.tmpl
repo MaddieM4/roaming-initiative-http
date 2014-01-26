@@ -1,6 +1,14 @@
 {{define "header"}}
-<header class="dev">
-    Access type detection is disabled temporarily.
+<header class="{{.server_name}}">
+{{ if eq .server_name "dev" }}
+    You are not accessing this site via a known server IP, so the server is probably a development machine ({{ .server_ip }})
+{{ else if eq .server_name "clearnet4" }}
+    You are accessing this site via the IPv4 Clearnet.
+{{ else if eq .server_name "clearnet6" }}
+    You are accessing this site via the IPv6 Clearnet.
+{{ else if eq .server_name "hyperboria"}}
+    You are accessing this site via the Hyperboria mesh network. Awesome!
+{{end}}
 </header>
 {{end}}
 {{define "sidebar"}}
@@ -39,7 +47,7 @@
     <link href="/media/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-{{ template "header" }}
+{{ template "header" . }}
 <div class="container">
     {{ template "sidebar" }}
     <div id="main-content">

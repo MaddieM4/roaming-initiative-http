@@ -14,6 +14,8 @@ server {
     location / {
         include       fastcgi_params;
         fastcgi_pass  localhost:9000;
+
+        fastcgi_param HTTP_SERVER_IP     $server_addr;
     }
 
     location /media {

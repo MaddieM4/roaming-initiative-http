@@ -23,6 +23,7 @@ case "$1" in
 
     # Start-stop daemon can also stop the application by sending sig 15
     # (configurable) to the process id contained in the run/pid file
+    killall roaming-initiative-http
     start-stop-daemon --stop --pidfile $PIDFILE --verbose
     rm $PIDFILE
     ;;
