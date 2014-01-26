@@ -3,7 +3,7 @@
 DATA_PATH=/var/www-data/roaming-initiative-http/
 VENV_PATH=./develop/bin/activate
 
-WSGI_PIDFILE=/var/run/ri-http.pid
+PIDFILE=/var/run/ri-http.pid
 DAEMON=${DATA_PATH}config/runserver.sh
 
 case "$1" in
@@ -12,20 +12,19 @@ case "$1" in
 
     # Run start-stop-daemon, the $DAEMON variable contains the path to the
     # application to run
-    start-stop-daemon --start -m --pidfile $WSGI_PIDFILE \
+    start-stop-daemon --start -m --pidfile $PIDFILE \
         --user www-data --group www-data \
         --chuid www-data \
         -b \
         --exec $DAEMON
     ;;
   stop)
-    echo "Stopping WSGI Application"
+    echo "Stopping Application"
 
     # Start-stop daemon can also stop the application by sending sig 15
     # (configurable) to the process id contained in the run/pid file
-    killall uwsgi # TODO: find better way to stop uwsgi process
-    start-stop-daemon --stop --pidfile $WSGI_PIDFILE --verbose
-    rm $WSGI_PIDFILE
+    start-stop-daemon --stop --pidfile $PIDFILE --verbose
+    rm $PIDFILE
     ;;
   restart)
     /etc/init.d/ri-http stop
