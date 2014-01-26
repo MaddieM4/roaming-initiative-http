@@ -1,8 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"github.com/codegangsta/martini"
 	"github.com/codegangsta/martini-contrib/render"
+	"io/ioutil"
+	"log"
 	"net/http"
 )
 
@@ -14,32 +17,47 @@ type Template struct {
 
 type ServerList map[string]string
 
-func NewServerList() ServerList {
-	servers := make(ServerList)
-	servers["173.255.210.202"] = "clearnet4"
-	servers["2600:3c01::f03c:91ff:feae:1082"] = "clearnet6"
-	servers["fcd5:7d07:2146:f18f:f937:d46e:77c9:80e7"] = "hyperboria"
+type Config struct {
+	Servers   ServerList
+	Templates []Template
+}
 
-	return servers
+func GetConfig() Config {
+	bytes_data, err := ioutil.ReadFile("./config.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var conf Config
+	err = json.Unmarshal(bytes_data, &conf)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return conf
+}
+
+type ServerInfo struct {
+	Ip   string
+	Name string
+}
+
+func getServerInfo(req *http.Request, s ServerList) ServerInfo {
+	info := ServerInfo{Ip: "0.0.0.0", Name: "dev"}
+
+	if hlist, ok := req.Header["Server-Ip"]; ok {
+		info.Ip = hlist[0]
+	}
+	if server_name, ok := s[info.Ip]; ok {
+		info.Name = server_name
+	}
+
+	return info
 }
 
 func handleTemplate(r render.Render, req *http.Request, t Template, s ServerList) {
-	var server_ip string
-	if hlist, ok := req.Header["Server-Ip"]; ok {
-		server_ip = hlist[0]
-	} else {
-		server_ip = "0.0.0.0"
-	}
-
 	tmpl_data := make(map[string]interface{})
 	tmpl_data["title"] = t.Title
-	tmpl_data["server_ip"] = server_ip
-
-	if server_name, ok := s[server_ip]; ok {
-		tmpl_data["server_name"] = server_name
-	} else {
-		tmpl_data["server_name"] = "dev"
-	}
+	tmpl_data["server"] = getServerInfo(req, s)
 
 	r.HTML(200, t.Tmpl, tmpl_data)
 }
@@ -53,38 +71,17 @@ func setupTemplate(m *martini.ClassicMartini, t Template) {
 	}
 }
 
-func newTemplate(tmpl string, title string) Template {
-	return Template{
-		Handlers: []string{tmpl},
-		Tmpl:     tmpl,
-		Title:    title,
-	}
-}
-
 func NewMartiniServer() *martini.ClassicMartini {
-
-	templates := []Template{
-		Template{
-			Handlers: []string{"", "index", "index.htm", "index.html"},
-			Tmpl:     "index",
-			Title:    "Home",
-		},
-		newTemplate("availability", "Goodies"),
-		newTemplate("contact", "Goodies"),
-		newTemplate("faq", "Goodies"),
-		newTemplate("goodies", "Goodies"),
-		newTemplate("hardware", "Goodies"),
-		newTemplate("pricing", "Goodies"),
-	}
+	conf := GetConfig()
 
 	m := martini.Classic()
 	m.Use(render.Renderer(render.Options{
 		Layout: "layout",
 	}))
 	m.Use(martini.Static("root"))
-	m.Map(NewServerList())
+	m.Map(conf.Servers)
 
-	for _, t := range templates {
+	for _, t := range conf.Templates {
 		setupTemplate(m, t)
 	}
 

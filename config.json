@@ -1,0 +1,44 @@
+{
+    "servers": {
+        "173.255.210.202": "clearnet4",
+        "2600:3c01::f03c:91ff:feae:1082": "clearnet6",
+        "fcd5:7d07:2146:f18f:f937:d46e:77c9:80e7": "hyperboria"
+    },
+    "templates": [
+        {
+            "handlers": ["", "index", "index.htm", "index.html"],
+            "tmpl": "index",
+			"title": "Roaming Initiative - Freedom for the Internet"
+        },
+        {
+            "handlers": ["availability"],
+            "tmpl": "availability",
+            "title": "Regional Availability - Roaming Initiative"
+        },
+        {
+            "handlers": ["contact"],
+            "tmpl": "contact",
+            "title": "Contact Us - Roaming Initiative"
+        },
+        {
+            "handlers": ["faq"],
+            "tmpl": "faq",
+            "title": "FAQ - Roaming Initiative"
+        },
+        {
+            "handlers": ["goodies"],
+            "tmpl": "goodies",
+            "title": "Goodies - Roaming Initiative"
+        },
+        {
+            "handlers": ["hardware"],
+            "tmpl": "hardware",
+            "title": "Hardware - Roaming Initiative"
+        },
+        {
+            "handlers": ["pricing"],
+            "tmpl": "pricing",
+            "title": "Pricing - Roaming Initiative"
+        }
+    ]
+}

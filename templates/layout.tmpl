@@ -1,12 +1,12 @@
 {{define "header"}}
-<header class="{{.server_name}}">
-{{ if eq .server_name "dev" }}
-    You are not accessing this site via a known server IP, so the server is probably a development machine ({{ .server_ip }})
-{{ else if eq .server_name "clearnet4" }}
+<header class="{{.Name}}">
+{{ if eq .Name "dev" }}
+    You are not accessing this site via a known server IP, so the server is probably a development machine ({{ .Ip }})
+{{ else if eq .Name "clearnet4" }}
     You are accessing this site via the IPv4 Clearnet.
-{{ else if eq .server_name "clearnet6" }}
+{{ else if eq .Name "clearnet6" }}
     You are accessing this site via the IPv6 Clearnet.
-{{ else if eq .server_name "hyperboria"}}
+{{ else if eq .Name "hyperboria"}}
     You are accessing this site via the Hyperboria mesh network. Awesome!
 {{end}}
 </header>
@@ -43,11 +43,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Roaming Initiative Official Site</title>
+    <title>{{ .title }}</title>
     <link href="/media/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-{{ template "header" . }}
+{{ template "header" .server }}
 <div class="container">
     {{ template "sidebar" }}
     <div id="main-content">
