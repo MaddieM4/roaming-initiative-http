@@ -1,57 +1,28 @@
 package main
 
 import (
-	"github.com/codegangsta/martini"
-	"github.com/codegangsta/martini-contrib/render"
+	"flag"
+	"log"
+	"net"
+	"net/http/fcgi"
 )
 
-type Template struct {
-	Handlers []string
-	Tmpl     string
-	Title    string
-}
-
-func setupTemplate(m *martini.ClassicMartini, t Template) {
-	handler := func(r render.Render) {
-		r.HTML(200, t.Tmpl, t.Title)
-	}
-	for _, name := range t.Handlers {
-		m.Get("/"+name, handler)
-	}
-}
-
-func newTemplate(tmpl string, title string) Template {
-	return Template{
-		Handlers: []string{tmpl},
-		Tmpl:     tmpl,
-		Title:    title,
-	}
-}
-
 func main() {
-	templates := []Template{
-		Template{
-			Handlers: []string{"", "index", "index.htm", "index.html"},
-			Tmpl:     "index",
-			Title:    "Home",
-		},
-		newTemplate("availability", "Goodies"),
-		newTemplate("contact", "Goodies"),
-		newTemplate("faq", "Goodies"),
-		newTemplate("goodies", "Goodies"),
-		newTemplate("hardware", "Goodies"),
-		newTemplate("pricing", "Goodies"),
+	m := NewMartiniServer()
+
+	var use_fcgi bool
+	flag.BoolVar(&use_fcgi, "fcgi", false, "Hosts with FCGI on port 9000")
+	flag.Parse()
+
+	if use_fcgi {
+		log.Print("Serving via FCGI...")
+		listener, err := net.Listen("tcp", "127.0.0.1:9000")
+		if err != nil {
+			log.Fatal(err)
+		}
+		fcgi.Serve(listener, m)
+	} else {
+		log.Print("Serving via straight Martini...")
+		m.Run()
 	}
-
-	m := martini.Classic()
-	m.Use(render.Renderer(render.Options{
-		Layout: "layout",
-	}))
-	m.Use(martini.Static("root"))
-
-	for _, t := range templates {
-		setupTemplate(m, t)
-	}
-
-	m.Run()
 }

@@ -12,12 +12,11 @@ server {
     access_log  /var/log/nginx/ri.access.log;
 
     location / {
-        include uwsgi_params;
-
-        uwsgi_param X-Real-IP $remote_addr;
-        uwsgi_param Server-Addr $server_addr;
-
-        uwsgi_pass 127.0.0.1:5555; 
+        fastcgi_pass  localhost:9000;
+        fastcgi_param QUERY_STRING     $query_string;
+        fastcgi_param REQUEST_METHOD   $request_method;
+        fastcgi_param CONTENT_TYPE     $content_type;
+        fastcgi_param CONTENT_LENGTH   $content_length;
     }
 
     location /media {
