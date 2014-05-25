@@ -30,7 +30,7 @@ server {
 
 
     location /blog {
-        alias   /var/www-data/blog/hyde/publish;
+        alias   /var/www-data/blog/publish;
         index   index.html index.htm;
     }
 
