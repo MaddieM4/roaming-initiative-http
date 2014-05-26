@@ -30,9 +30,10 @@ server {
 
 
     location /blog {
-        rewrite   ^/blog/blog/tags/(.*)$ /blog/tags/$1 redirect;
-        rewrite   ^/blog/blog/(.*)$ /blog/posts/$1 redirect;
-        rewrite   ^(.*)\.html$ $1/ redirect;
+        rewrite   ^/blog/blog/tags/(.*)$ /blog/tags/$1 permanent;
+        rewrite   ^/blog/blog/(.*)$ /blog/posts/$1 permanent;
+        rewrite   ^(.*)\.html$ $1/ permanent;
+        rewrite   ^(.*)/(excerpts|atom)\.xml$ $1/index.xml permanent;
         alias     /var/www-data/blog/publish;
         try_files $uri/index.html $uri =404;
     }
