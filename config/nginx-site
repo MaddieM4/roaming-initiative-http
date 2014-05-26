@@ -30,6 +30,7 @@ server {
 
 
     location /blog {
+        rewrite   ^/blog/blog/tags/(.*)$ /blog/tags/$1 redirect;
         rewrite   ^/blog/blog/(.*)$ /blog/posts/$1 redirect;
         rewrite   ^(.*)\.html$ $1/ redirect;
         alias     /var/www-data/blog/publish;
