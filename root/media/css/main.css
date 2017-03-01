@@ -4,9 +4,11 @@ header {
     left: 0px;
     height: 20px;
     width:  100%;
+    
     padding: 5px;
     background-color: white;
     border-bottom: 2px solid black;
+    
 }
 
 header.clearnet4 {
@@ -22,21 +24,22 @@ header.hyperboria {
 
 #sidebar {
     float: left;
-    position: relative;
+    margin-top: 50%;
     width: 210px;
-    padding: 5px;
+    padding: 3px;
 }
 
 #sidebar .button {
     display: block;
     width: 180px;
     height: 1em;
+    font-size: .8em;
     padding: 5px;
-    margin: 4px;
+    margin: 3px;
     text-decoration: none;
     color: #003D09;
     background-color: #BFA;
-    border: 2px solid #003D09;
+    border: 4px solid #003D09;
 }
 
 #sidebar .button:hover {
@@ -45,14 +48,32 @@ header.hyperboria {
     border-color: #003D09;
 }
 
+.logo{
+    position: absolute;
+    padding-top: 2%;
+    margin-left: 42%;
+}
+
+.back{
+    width: 100%;
+    height:auto;
+    padding-bottom: 500%;
+    background-image: url('valley.jpg');
+    background-repeat:no-repeat;
+    background-size: 100%;
+    position:absolute;
+}
+
 #main-content {
-    float: left;
-    position: relative;
-    width: 500px;
+    float:left;
+    text-align:center;
+    width: 700px;
     padding: 15px;
     background-color: #BFA;
     border: 6px solid #003D09;
-    margin-top: 8px;
+    border-radius: 7px;
+    margin-top: 50%;
+    margin-left: 7%;
 }
 
 #main-content h1 {
@@ -87,6 +108,7 @@ header.hyperboria {
 body {
     margin-top: 30px;
     background-color: #282;
+    font-size: 1.5em;
 }
 
 footer {
